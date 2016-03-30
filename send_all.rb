@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 
-require "./database.rb"
 require "./vipnet_coordinator_settings_grabber.rb"
 require "yaml"
 

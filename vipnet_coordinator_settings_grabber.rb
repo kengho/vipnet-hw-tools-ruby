@@ -1,7 +1,7 @@
 module VipnetCoordinatorSettingsGrabber
   # returns path to tempfile with iplirconf or nil if any problem occured
   def iplirconf(hostname, password)
-		username = "vipnet"
+    username = "vipnet"
 
     # add digest to known_hosts if needed
     require "ruby_expect"

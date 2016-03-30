@@ -1,0 +1,34 @@
+=== Purpose
+Grabs configuration files from ViPNet Coordinator HW v3 using SSH vipnet shell. No «enable» or «admin escape» needed.
+May send results to remote server. Currently implements only «iplir.conf» file grabbing.
+
+=== Usage
+# HW firewall.conf
+[local]
+rule= num N proto tcp from "#{ruby_ip}" to "#{hw_ip} | 'anyip'":22 pass
+...
+
+# ruby
+gem install "ruby_expect"
+require "./vipnet_coordinator_settings_grabber.rb"
+
+# get iplir.conf
+iplirconf_path = VipnetCoordinatorSettingsGrabber::iplirconf(ip, password)
+# entering password
+# iplir show config
+iplirconf_path
+# /tmp/iplirconf20160330-23599-oaxnz5
+
+# send config file(s) to remote server
+./send_all.rb
+# 0x06391311
+# entering password
+# iplir show config
+# curl -X POST -F "content=@/tmp/iplirconf20160330-23626-9487tz" -F "vipnet_id=0x1234567" -H "Authorization: Token token=t0ken" 1.2.3.4:5/api/v1/iplirconfs
+# ...
+
+=== TODO list
+* Check HW's SSH digest.
+* Implement Windows' ViPNet Coordinator support.
+* Implement «firewall.conf» and other files' grabbing.
+* Add more settings.
