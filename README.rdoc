@@ -3,12 +3,12 @@ Grabs configuration files from ViPNet Coordinator HW v3 using SSH vipnet shell. 
 May send results to remote server. Currently implements only «iplir.conf» file grabbing.
 
 === Usage
-# HW firewall.conf
-[local]
-rule= num N proto tcp from "#{ruby_ip}" to "#{hw_ip} | 'anyip'":22 pass
-...
+HW firewall.conf
+  [local]
+  rule= num N proto tcp from "#{ruby_ip}" to "#{hw_ip} | 'anyip'":22 pass
+  ...
 
-ruby
+Ruby
   gem install "ruby_expect"
   require "./vipnet_coordinator_settings_grabber.rb"
   # get iplir.conf
