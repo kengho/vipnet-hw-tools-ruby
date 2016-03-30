@@ -1,0 +1,11 @@
+token: t0ken
+path: 1.2.3.4:555/api/v1/iplirconfs
+coordinators:
+  -
+    vipnet_id: "0x12345678" # without quotes interpreted as integer, but we need a string
+    ip: 2.3.4.5
+    password: passw0rd
+  -
+    vipnet_id: "0x12345679"
+    ip: 2.3.4.6
+    password: passw1rd
