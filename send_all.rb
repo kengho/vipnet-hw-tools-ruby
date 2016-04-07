@@ -15,7 +15,7 @@ coordinators.each do |coordinator|
 	else
 		password = coordinator["password"]
 	end
-	iplirconf_path = VipnetCoordinatorSettingsGrabber::iplirconf({ hostname: coordinator["ip"], password: password })
+	iplirconf_path = VipnetCoordinatorSettingsGrabber::iplirconf({ hostname: coordinator["hostname"], password: password })
 	request =	"curl -X POST "\
 						"-F \"content=@#{iplirconf_path}\" "\
 						"-F \"vipnet_id=#{coordinator['vipnet_id']}\" "\
