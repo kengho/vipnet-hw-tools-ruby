@@ -10,7 +10,7 @@ coordinators = database["coordinators"]
 
 coordinators.each do |coordinator|
 	puts coordinator["vipnet_id"]
-	iplirconf_path = VipnetCoordinatorSettingsGrabber::iplirconf(coordinator["ip"], coordinator["password"])
+	iplirconf_path = VipnetCoordinatorSettingsGrabber::iplirconf({ hostname: coordinator["ip"], password: coordinator["password"] })
 	request =	"curl -X POST "\
 						"-F \"content=@#{iplirconf_path}\" "\
 						"-F \"vipnet_id=#{coordinator['vipnet_id']}\" "\

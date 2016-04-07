@@ -1,8 +1,13 @@
 module VipnetCoordinatorSettingsGrabber
-  # returns path to tempfile with iplirconf or nil if any problem occured
-  def iplirconf(hostname, password)
-    username = "vipnet"
+  # returns path to file with iplirconf or nil if any problem occured
+  # writes file to output_file_path if defined
+  # makes tempfile if not
+  def iplirconf(params)
+    hostname = params[:hostname]
+    password = params[:password]
+    output_file_path = params[:output_file_path]
 
+    username = "vipnet"
     # add digest to known_hosts if needed
     require "ruby_expect"
     exp_ssh_digest = RubyExpect::Expect.spawn("/usr/bin/ssh #{username}@#{hostname}")
@@ -70,7 +75,7 @@ module VipnetCoordinatorSettingsGrabber
     iplirconf = iplirconf[/.*default= auto\r\n/m, 0]
     # replace \r\n by \n
     iplirconf = iplirconf.gsub("\r", "")
-    # dunno what's the source of this
+    # remove trash caused by send 13
     iplirconf = iplirconf.gsub(":\x1B[K\x1B[K:\x1B[K1\x081\x1B[K3\x083\x1B[K", "")
     # remove trash caused by "terminal is not fully functional" issue when running script with cron
     iplirconf = iplirconf.gsub("::3\x083", "")
@@ -80,11 +85,17 @@ module VipnetCoordinatorSettingsGrabber
     # add return if necessary
     iplirconf += "\n" if iplirconf[-4..-1] != "\n\n"
 
-    require "tempfile"
-    iplirconf_file = Tempfile.new("iplirconf")
-    iplirconf_file.write(iplirconf)
-    iplirconf_file.flush
-    iplirconf_file.path
+    if output_file_path
+      File.open(output_file_path, 'w') { |f| f.write(iplirconf) }
+      output_file_path
+    else
+      require "tempfile"
+      iplirconf_file = Tempfile.new("iplirconf")
+      iplirconf_file.write(iplirconf)
+      iplirconf_file.flush
+      iplirconf_file.path
+    end
+
   end
 
   module_function :iplirconf
