@@ -2,7 +2,7 @@
 
 ## Summary
 
-Allows to get configuration files like iplir.conf (and more) from ViPNet products such as HW1000; no "enable" and "admin escape" needed. Currently implemented only `iplir.conf` file getting from ViPNet Coordinator HW v3.
+Allows to get configuration files like iplir.conf (and more) from ViPNet products such as HW1000; no `enable` and `admin escape` needed, just readonly ssh access. Currently implemented only `iplir.conf` file getting from ViPNet Coordinator HW v3.
 
 ## Installing
 
@@ -16,6 +16,17 @@ or run
 
 ## Usage
 
+* allow to connect from your machine to coordinator via ssh (by `[local]` section rule or installing ViPNet Client)
+
+```
+firewall.conf:
+
+[local]
+...
+rule= name "vipnet_getter access" proto tcp from 192.0.2.1 to 192.0.2.2:22 pass
+```
+
+* have fun
 ```
 irb(main):001:0> require "vipnet_getter"
 => true
@@ -32,16 +43,16 @@ irb(main):004:0>
 
 ## TODO
 
-* implement getting more configuration files like firewall.conf
+* implement getting more configuration files like `firewall.conf`
 * support for ViPNet HW v4 and ViPNet Coordinator Windows
-* more clean and understandable code
+* make more clean and understandable code
 
 ## Testing
 
 * `git clone`
 * put `iplir.conf` to `spec/fixtures/` folder (you may get it via `nc`, USB Flash Drive or another way)
 * fill out `spec/vipnet_data.yml` file using example
-* allow to connect from testing machine to your coordinator via ssh (by `[local]` section rule or installing ViPNet Client)
+* allow ssh access to coordinator
 * `rake`
 
 ## License
