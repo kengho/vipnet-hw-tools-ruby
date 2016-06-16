@@ -57,4 +57,4 @@ irb(main):004:0>
 
 ## License
 
-MESD is distributed under the MIT-LICENSE.
+VipnetGetter is distributed under the MIT-LICENSE.
