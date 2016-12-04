@@ -5,9 +5,9 @@ class VipnetGetter
   def self.iplirconf(params)
     hostname = params[:hostname]
     password = params[:password]
+    username = params[:username] || "vipnet"
     output_file_path = params[:output_file_path]
 
-    username = "vipnet"
     # adding digest to known_hosts if needed
     require "ruby_expect"
     exp_ssh_digest = RubyExpect::Expect.spawn("/usr/bin/ssh #{username}@#{hostname}")

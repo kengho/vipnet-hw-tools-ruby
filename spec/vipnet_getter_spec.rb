@@ -13,6 +13,7 @@ RSpec.describe VipnetGetter do
       gotten_iplirconf_file = VipnetGetter::iplirconf({
         hostname: data["hostname"],
         password: data["password"],
+        username: data["username"] || "vipnet",
         output_file_path: output_file_path,
       })
       gotten_iplirconf = file_fixture(tmp_iplirconf_path)
