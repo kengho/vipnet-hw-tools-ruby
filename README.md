@@ -2,7 +2,7 @@
 
 ## Summary
 
-Allows to get configuration files like iplir.conf (and more) from ViPNet products such as HW1000; no `enable` and `admin escape` needed, just readonly ssh access. Currently implemented only `iplir.conf` file getting from ViPNet Coordinator HW v3.
+Allows to get configuration files like iplir.conf (and more) from ViPNet™ products such as HW1000; no `enable` and `admin escape` needed, just readonly ssh access. Currently implemented only `iplir.conf` file getting from ViPNet™ Coordinator HW v3.
 
 ## Installing
 
@@ -16,7 +16,7 @@ or run
 
 ## Usage
 
-* allow to connect from your machine to coordinator via ssh (by `[local]` section rule or installing ViPNet Client)
+* allow to connect from your machine to coordinator via ssh (by `[local]` section rule or installing ViPNet™ Client)
 
 ```
 firewall.conf:
@@ -44,7 +44,7 @@ irb(main):004:0>
 ## TODO
 
 * implement getting more configuration files like `firewall.conf`
-* support for ViPNet HW v4 and ViPNet Coordinator Windows
+* support for ViPNet™ HW v4 and ViPNet™ Coordinator Windows
 * make more clean and understandable code
 
 ## Testing
@@ -58,3 +58,5 @@ irb(main):004:0>
 ## License
 
 VipnetGetter is distributed under the MIT-LICENSE.
+
+ViPNet™ is registered trademark of InfoTeCS Gmbh, Russia.
