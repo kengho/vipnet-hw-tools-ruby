@@ -1,3 +1,8 @@
-hostname: 192.0.2.2
-username: user
-password: passw0rd
+coordinators:
+  -
+    hostname: 192.0.2.2
+    password: passw0rd
+  -
+    hostname: 10.46.59.20
+    password: passw1rd
+    username: user

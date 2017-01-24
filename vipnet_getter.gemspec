@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = "vipnet_getter"
-  s.version     = "0.2"
-  s.date        = "2016-12-04"
+  s.version     = "0.3"
+  s.date        = "2017-01-24"
   s.summary     = "Gem for getting data from ViPNet™ products"
   s.description = "Allows to get configuration files like iplir.conf (and more) from ViPNet™ products such as HW1000; no \"enable\" and \"admin escape\" needed."
   s.authors     = ["Alexander Morozov"]
