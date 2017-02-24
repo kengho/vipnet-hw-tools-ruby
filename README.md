@@ -2,7 +2,7 @@
 
 ## Summary
 
-Allows to get configuration files like iplir.conf (and more) from ViPNet™ products such as HW1000; no `enable` and `admin escape` needed, just readonly ssh access. Currently implemented only "iplir.conf" file getting from ViPNet™ Coordinator HW v3+.
+Allows to get configuration files like iplir.conf (and more) from ViPNet™ products such as HW1000; no `enable` and `admin escape` needed, just readonly ssh access. Currently implemented only "iplir.conf" file getting from ViPNet™ Coordinator HW v3+. Requires Linux, `ssh` and `luit`.
 
 ## Installing
 
